@@ -19,7 +19,7 @@ This repository contains source code for a demonstration about RESTful APIs (Jav
     - `libs/api/src/lib`: APIs client code for Angular generated from OpenAPI doc provided by the Restful APIs
     - `libs/api/src/lib/specs`: Simple specs for testing the generated APIs client code
 
-## How to run the example
+## How to run the demo
 
 ### 1. Activate the terminal commands
 
