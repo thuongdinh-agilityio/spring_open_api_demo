@@ -124,7 +124,7 @@ public enum TaskStatus {
 ### Add OpenAPI Annotation for controller classes
 
 Define `@Tag` which helps to display nicely name of APIs group in the APIs doc & Swagger [TaskController.java](./api/src/main/java/com/agilityio/open_api_demo/controller/v1/api/TaskController.java). 
-```
+```java
 @RestController
 @RequestMapping("/api/v1/tasks")
 @Tag(name = "Task")
@@ -137,7 +137,7 @@ public class TaskController {
 *Note:* 
  - If not add operationId, OpenAPI will get the name of function, so be careful with builtIn names of language like `delete`, need to be customized to generate the right API function name.
  - `@Valid` is for auto validation input data based on the javax.validation defined in the POJO classes. 
-```
+```java
 @GetMapping
 @Operation(security = {@SecurityRequirement(name = "api-key")}, operationId = "getAll")
 Page<EmployeeDto> getAll(Pageable pageable, Sort sort) {
@@ -159,7 +159,7 @@ public EmployeeDto createEmployee(@Valid @RequestBody EmployeeRequestDto employe
 ```
 
 API with `@Parameter` annotations helps to override API's parameters [TaskController.java](./api/src/main/java/com/agilityio/open_api_demo/controller/v1/api/TaskController.java). 
-```
+```java
 @GetMapping
 @ResponseStatus(HttpStatus.OK)
 @Operation(summary = "FindTasks", security = {@SecurityRequirement(name = "api-key")})
