@@ -1,0 +1,49 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'com.agilityio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    // Database for data jpa able to compile, can replace by another
+    runtimeOnly 'com.h2database:h2'
+
+    // Misc
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator' // health, info
+    implementation 'com.github.javafaker:javafaker:1.0.2'
+    implementation 'javax.validation:validation-api:2.0.0.Final'
+    implementation 'org.modelmapper:modelmapper:2.3.0'
+    implementation 'br.com.six2six:fixture-factory:3.1.0'
+
+    // OpenAPI
+    implementation "org.springdoc:springdoc-openapi-ui:1.4.4"
+    // Support Pageable, sorted etc... without it some params will be fail
+    // when render on the swagger-ui
+    implementation "org.springdoc:springdoc-openapi-data-rest:1.4.6"
+}
+
+test {
+    useJUnitPlatform()
+}
