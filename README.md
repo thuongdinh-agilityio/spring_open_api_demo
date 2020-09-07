@@ -8,9 +8,7 @@ This repository contains source code for a demonstration about RESTful APIs (Jav
 
 ## Requirements
 
- - NodeJS
- - Angular
- - nx.dev
+ - NodeJS (v14)
  - Docker
  - Java (Openjdk 11.0.8)
  - openapi-generator-cli (v4.3.1)
@@ -31,13 +29,20 @@ After this command finished success, visit those links to access APIs documents:
 
 ### 3. Run web APIs test cases
 
-```$ do-web-run-api-test```
+```bash
+$ do-web-bootstrap-env # install needed libs for Angular
+$ do-web-run-api-test
+```
 
 ### 4. Re-generate the web APIs if have changes in APIs
 
 ```$ do-api-gen```
 
 Check generated APIs client in folder `web/libs/api/src/lib` and specs of testing APIs in `web/libs/api/src/lib/specs`.
+
+### 5. Stop APIs server
+
+```$ do-api-stop```
 
 ## Implement OpenAPI Doc in Spring Guidelines
 
